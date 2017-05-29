@@ -44,9 +44,10 @@
 - (void) TSCurrencyTextField_commonInit
 {
     _invalidInputCharacterSet = [[NSCharacterSet decimalDigitCharacterSet] invertedSet];
-
+    
     _currencyNumberFormatter = [[NSNumberFormatter alloc] init];
-    _currencyNumberFormatter.locale = [NSLocale currentLocale];
+    // _currencyNumberFormatter.locale = [NSLocale currentLocale];
+    
     _currencyNumberFormatter.numberStyle = kCFNumberFormatterCurrencyStyle;
     _currencyNumberFormatter.usesGroupingSeparator = YES;
     
@@ -55,6 +56,15 @@
     
     [self setText: @"0"];
 }
+
+
+-(void) setlocal:(NSLocale*) locale{
+    _currencyNumberFormatter.locale = locale;
+    [self setText: self.text];
+    
+}
+
+
 
 - (void) setCaratPosition: (NSInteger) pos
 {

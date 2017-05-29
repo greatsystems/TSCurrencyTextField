@@ -13,5 +13,7 @@
 @property (nonatomic) NSNumberFormatter* currencyNumberFormatter;
 
 @property (nonatomic) NSNumber* amount;
+-(void) setlocal:(NSLocale*) locale;
+
 
 @end
